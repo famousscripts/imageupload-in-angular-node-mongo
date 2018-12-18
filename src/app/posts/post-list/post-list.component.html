@@ -1,0 +1,13 @@
+<div *ngIf="isLoading"></div>
+<div multi="true" *ngIf="posts.length > 0 && !isLoading">
+  <div *ngFor="let post of posts">
+    <div class="post-image" style="width:200px;height:300px">
+      <img [src]="post.imagePath"> 
+    </div>
+    <div>
+      <a  color="primary" [routerLink]="['/edit', post.id]">EDIT</a>
+      <button  color="warn" (click)="onDelete(post.id)">DELETE</button>
+    </div>
+  </div>
+</div>
+<p  *ngIf="posts.length <= 0 && !isLoading">No posts added yet!</p>
